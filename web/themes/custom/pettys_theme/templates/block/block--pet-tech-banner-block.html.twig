@@ -1,0 +1,18 @@
+{% if content.field_pet_tech_background|render %}
+  {% set background_image = content.field_pet_tech_background %}
+{% else %}
+  {% set background_image = theme_path ~ '/images/pet-tech-default.jpg' %}
+{% endif %}
+
+<section class="pet-tech-banner" style="background-image: url('{{ background_image }}');">
+  <div class="container">
+    <div class="pet-tech-content">
+      {% if content.field_pet_tech_title|render %}
+        <h2 class="pet-tech-title">{{ content.field_pet_tech_title }}</h2>
+      {% endif %}
+      {% if content.field_pet_tech_button_url_data %}
+        <a href="{{ content.field_pet_tech_button_url_data.url }}" class="btn-innovations">{{ content.field_pet_tech_button_url_data.title }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>

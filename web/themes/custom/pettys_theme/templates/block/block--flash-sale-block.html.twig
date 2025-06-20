@@ -1,0 +1,31 @@
+{% if content.field_flash_sale_background|render %}
+  {% set background_image = content.field_flash_sale_background %}
+{% else %}
+  {% set background_image = theme_path ~ '/images/flash-sale-default.jpg' %}
+{% endif %}
+
+<section class="flash-sale-banner" style="background-image: url('{{ background_image }}');">
+  <div class="line1"></div>
+  <div class="container">
+    <div class="flash-sale-content">
+      {% if content.field_flash_sale_title|render %}
+        <h2 class="sale-title">{{ content.field_flash_sale_title }}</h2>
+      {% endif %}
+      {% if content.field_flash_sale_end_date|render %}
+        <div class="sale-end">{{ content.field_flash_sale_end_date }}</div>
+      {% endif %}
+      <div class="action-buttons">
+        {% if content.field_flash_sale_buttons %}
+          {% for button in content.field_flash_sale_buttons %}
+            {% if button.url and button.title %}
+              <a href="{{ button.url }}" class="btn-flash-sale{{ loop.index }}" aria-label="{{ button.title }} (external link)">
+                {{ button.title }}
+              </a>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="line2"></div>
+</section>

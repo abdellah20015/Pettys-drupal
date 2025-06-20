@@ -1,0 +1,30 @@
+<div class="cart">
+  <h2>Mon panier</h2>
+  {% if items|length > 0 %}
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Article</th>
+          <th>Option</th>
+          <th>Quantité</th>
+          <th>Prix unitaire</th>
+          <th>Sous-total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+          <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.variation }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>${{ item.price|number_format(2) }}</td>
+            <td>${{ item.subtotal|number_format(2) }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p><strong>Total : ${{ total|number_format(2) }}</strong></p>
+  {% else %}
+    <p>Votre panier est vide.</p>
+  {% endif %}
+</div>

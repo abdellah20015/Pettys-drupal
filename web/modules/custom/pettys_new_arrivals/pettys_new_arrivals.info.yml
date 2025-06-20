@@ -1,0 +1,13 @@
+name: 'Pettys New Arrivals'
+description: 'Module pour afficher la région Nouvelles Arrivées avec une vue personnalisée.'
+type: module
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:text
+  - drupal:field
+  - drupal:filter
+  - drupal:user
+  - drupal:system
+  - drupal:block

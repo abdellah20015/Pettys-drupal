@@ -1,0 +1,24 @@
+{% if content.field_sale_background_image|render %}
+  {% set background_image = content.field_sale_background_image %}
+{% else %}
+  {% set background_image = theme_path ~ '/images/still-life-domestic-animal-accessories-composition 1.png' %}
+{% endif %}
+
+<section class="sale-banner" style="background-image: url('{{ background_image }}');">
+  <div class="container">
+    <div class="sale-content">
+      {% if content.field_sale_subtitle|render %}
+        <div class="sale-subtitle">{{ content.field_sale_subtitle }}</div>
+      {% endif %}
+      {% if content.field_sale_title|render %}
+        <h2 class="sale-title">{{ content.field_sale_title }}</h2>
+      {% endif %}
+      {% if content.field_sale_end_date|render %}
+        <div class="sale-end">{{ content.field_sale_end_date }}</div>
+      {% endif %}
+      {% if content.field_sale_button_url_data %}
+        <a href="{{ content.field_sale_button_url_data.url }}" class="btn-shop">{{ content.field_sale_button_url_data.title }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>

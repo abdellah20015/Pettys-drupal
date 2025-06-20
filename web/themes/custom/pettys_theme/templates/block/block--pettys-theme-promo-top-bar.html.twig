@@ -1,0 +1,11 @@
+<!-- PROMO BLOCK LOADED -->
+<div class="promo-text">
+  {% if promo_text %}
+    <p>
+      {{ promo_text|raw }} &nbsp;
+      {% if button_text and button_url %}
+        <a class="btn-small" href="{{ button_url }}" target="_blank">{{ button_text }}</a>
+      {% endif %}
+    </p>
+  {% endif %}
+</div>

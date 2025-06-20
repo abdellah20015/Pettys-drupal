@@ -1,0 +1,86 @@
+.sale-banner {
+    background-image: $image-sale-banner;
+    background-size: cover;
+    background-position: $center;
+    background-repeat: no-repeat;
+    padding: $spacing-xl;
+    position: $relative;
+    overflow: hidden;
+    min-height: 200px;
+    margin-bottom: 143px;
+
+    .container {
+        @include flex(row, center, center);
+        position: $relative;
+        z-index: 2;
+        min-height: 200px;
+        border: 2px solid $color-yellow-E9;
+        padding: 30px 0;
+        @include responsive(sm) {
+            @include flex(column, center, center);
+            text-align: $center;
+        }
+    }
+
+    .sale-content {
+        @include flex(column, center, center);
+        text-align: $center;
+        width: 100%;
+
+        .sale-subtitle {
+            font-family: $font-family-sans;
+            font-weight: $font-weight-400;
+            font-size: $font-size-18;
+            line-height: 62px;
+            text-transform: uppercase;
+            color: $color-white;
+        }
+
+        .sale-title {
+            font-family: $font-family-ubuntu;
+            font-weight: $font-weight-500;
+            font-size: $font-size-54;
+            line-height: 52px;
+            letter-spacing: 0%;
+            text-align: $center;
+            text-transform: uppercase;
+            color: $color-white;
+            @include responsive(md) {
+                font-size: $font-size-44;
+            }
+        }
+
+        .sale-end {
+            font-family: $font-family-sans;
+            font-weight: $font-weight-400;
+            font-size: $font-size-22;
+            line-height: 62px;
+            color: $color-white;
+            margin-bottom: 38px;
+        }
+
+        .btn-shop {
+            width: 191;
+            height: 58;
+            top: 232px;
+            left: 628px;
+            border-radius: 24px;
+            padding-top: 23px;
+            padding-right: 54px;
+            padding-bottom: 23px;
+            padding-left: 54px;
+            gap: 10px;
+            background: $color-yellow-FF;
+            font-family: $font-family-ubuntu;
+            font-weight: $font-weight-400;
+            font-size: $font-size-18;
+            line-height: 100%;
+            text-transform: capitalize;
+            border: none;
+            cursor: $cursor;
+            @include hover-effect {
+                background-color: darken($color-yellow-7D, 10%);
+            }
+        }
+    }
+}

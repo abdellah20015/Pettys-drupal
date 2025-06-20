@@ -1,0 +1,532 @@
+.featured-product {
+  padding: $featured-padding 0;
+  overflow: hidden;
+  margin-bottom: 99px;
+
+  .container {
+      max-width: $container-max-width;
+      margin: 0 auto;
+      padding: 0 $spacing-sm;
+  }
+
+  .featured-header {
+      text-align: $center;
+      margin-bottom: $featured-header-margin;
+
+      .section-title {
+          font-family: $font-family-ubuntu;
+          font-weight: $font-weight-700;
+          font-size: $font-size-32;
+          line-height: 70px;
+          color: $color-black-25;
+          margin-bottom: 28px;
+      }
+
+      .featured-subtitle {
+          font-family: $font-family-sans;
+          font-weight: $font-weight-400;
+          font-size: $font-size-18;
+          line-height: 62px;
+          text-align: $center;
+          margin-bottom: 46px;
+      }
+  }
+
+  .featured-slider {
+      position: $relative;
+      border-radius: $border-radius-md;
+      overflow: hidden;
+      height: $featured-slider-height;
+      box-shadow: $featured-shadow;
+  }
+
+  .featured-slide {
+      display: $flex;
+      height: 100%;
+      width: 100%;
+      position: $absolute;
+      opacity: 0.5;
+      transition: opacity $featured-transition;
+
+      &.active {
+          opacity: 1;
+          z-index: 1;
+      }
+
+      .featured-content {
+          width: 100%;
+          background-image: $image-cat-paw;
+          display: $flex;
+          flex-direction: column;
+          justify-content: $center;
+          position: $relative;
+
+          .featured-title {
+              font-family: $font-family-ubuntu;
+              font-weight: $font-weight-500;
+              font-size: $font-size-64;
+              line-height: 69px;
+              text-align: $center;
+              text-transform: uppercase;
+              color: $color-white;
+              margin-bottom: 64px;
+              white-space: pre-line;
+              word-break: break-word;
+              left: 0;
+              margin-right: 100px;
+          }
+
+          .btn-featured {
+              width: 297px;
+              height: 74px;
+              border-radius: 25px;
+              padding: 30px 64px;
+              text-align: $center;
+              gap: 18px;
+              cursor: $cursor;
+              background: $color-white;
+              font-family: $font-family-ubuntu;
+              font-weight: $font-weight-400;
+              font-size: $font-size-20;
+              line-height: 100%;
+              text-transform: capitalize;
+              position: relative;
+              left: 50%;
+              transform: translateX(-70%);
+              margin-top: -10px;
+              z-index: 5;
+              transition: all 0.3s ease;
+
+              i {
+                  margin-left: $spacing-sm;
+                  transition: transform $transition-normal;
+              }
+
+              &:hover {
+                background: $color-white-E8;
+                color: $color-black-25;
+              }
+          }
+      }
+  }
+
+  .slider-pagination {
+      position: $absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+
+      .control-track {
+          position: $relative;
+          width: 5px;
+          height: 400px;
+          max-height: 814px;
+          background-color: $color-white;
+          right: 300px;
+
+          &:before,
+          &:after {
+              content: '';
+              position: $absolute;
+              left: 50%;
+              width: 6px;
+              height: 6px;
+              border-radius: 50%;
+              background-color: $color-white;
+              transform: translateX(-50%);
+          }
+
+          &:before {
+              top: 0;
+          }
+
+          &:after {
+              bottom: 0;
+          }
+      }
+
+      .control-handle {
+          position: $absolute;
+          left: 50%;
+          background-color: $color-white;
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          cursor: $grab;
+          display: flex;
+          align-items: $center;
+          justify-content: $center;
+          box-shadow: 0 2px 10px $color-blac-02;
+          width: 78px;
+          height: 78px;
+
+          .control-arrow {
+              position: $absolute;
+              font-size: 14px;
+              color: $color-black-25;
+              font-weight: $font-weight-700;
+              user-select: none;
+              cursor: $cursor;
+              display: flex;
+              align-items: $center;
+              justify-content: $center;
+
+              &.control-left {
+                  left: 8px;
+              }
+
+              &.control-right {
+                  right: 8px;
+              }
+
+              i {
+                  font-size: $font-size-24;
+              }
+
+              &:hover {
+                  color: $color-black;
+              }
+          }
+
+          &:active {
+              cursor: $grabbing;
+          }
+      }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .featured-product {
+    margin-bottom: 70px;
+
+    .container {
+      padding: 0 24px;
+    }
+
+    .featured-header {
+      margin-bottom: 40px;
+
+      .section-title {
+        font-size: 28px;
+        line-height: 38px;
+        margin-bottom: 20px;
+      }
+
+      .featured-subtitle {
+        font-size: 16px;
+        line-height: 26px;
+        margin-bottom: 32px;
+      }
+    }
+
+    .featured-slider {
+      height: 550px;
+      border-radius: $border-radius-sm;
+    }
+
+    .featured-slide {
+      .featured-content {
+        .featured-title {
+          font-size: 48px;
+          line-height: 54px;
+          margin-bottom: 40px;
+          padding: 0 32px;
+        }
+
+        .btn-featured {
+          width: 260px;
+          height: 64px;
+          padding: 20px 48px;
+          font-size: 18px;
+          border-radius: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          margin-top: 0;
+        }
+      }
+    }
+
+    .slider-pagination {
+      right: 24px;
+
+      .control-track {
+        height: 320px;
+        width: 4px;
+        right: 0;
+        margin: 0 auto;
+      }
+
+      .control-handle {
+        width: 64px;
+        height: 64px;
+
+        .control-arrow {
+          i {
+            font-size: 20px;
+          }
+
+          &.control-left {
+            left: 10px;
+          }
+
+          &.control-right {
+            right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .featured-product {
+    margin-bottom: 60px;
+
+    .container {
+      padding: 0 20px;
+    }
+
+    .featured-header {
+      margin-bottom: 32px;
+
+      .section-title {
+        font-size: 26px;
+        line-height: 32px;
+        margin-bottom: 16px;
+      }
+
+      .featured-subtitle {
+        font-size: 15px;
+        line-height: 24px;
+        margin-bottom: 24px;
+      }
+    }
+
+    .featured-slider {
+      height: 480px;
+    }
+
+    .featured-slide {
+      .featured-content {
+        .featured-title {
+          font-size: 40px;
+          line-height: 46px;
+          margin-bottom: 32px;
+          padding: 0 24px;
+          transform: translateX(15%);
+
+
+        }
+
+        .btn-featured {
+          width: 220px;
+          height: 56px;
+          padding: 16px 40px;
+          font-size: 16px;
+          border-radius: 18px;
+          left: 50%;
+          transform: translateX(-47%);
+          margin-top: 0;
+          text-align: center;
+        }
+      }
+    }
+
+    .slider-pagination {
+      right: 35px;
+
+
+      .control-track {
+        height: 280px;
+        width: 3px;
+      }
+
+      .control-handle {
+        width: 56px;
+        height: 56px;
+
+        .control-arrow {
+          i {
+            font-size: 18px;
+          }
+
+          &.control-left {
+            left: 8px;
+          }
+
+          &.control-right {
+            right: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .featured-product {
+    margin-bottom: 50px;
+
+    .container {
+      padding: 0 16px;
+    }
+
+    .featured-header {
+      margin-bottom: 24px;
+
+      .section-title {
+        font-size: 22px;
+        line-height: 28px;
+        margin-bottom: 12px;
+      }
+
+      .featured-subtitle {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .featured-slider {
+      height: 400px;
+      border-radius: 8px;
+    }
+
+    .featured-slide {
+      .featured-content {
+        .featured-title {
+          font-size: 32px;
+          line-height: 38px;
+          margin-bottom: 24px;
+          padding: 0 16px;
+        }
+
+        .btn-featured {
+          width: 180px;
+          height: 48px;
+          padding: 12px 32px;
+          font-size: 15px;
+          border-radius: 16px;
+        }
+      }
+    }
+
+    .slider-pagination {
+      right: 12px;
+
+      .control-track {
+        height: 200px;
+        width: 2px;
+
+        &:before,
+        &:after {
+          width: 4px;
+          height: 4px;
+        }
+      }
+
+      .control-handle {
+        width: 48px;
+        height: 48px;
+
+        .control-arrow {
+          i {
+            font-size: 16px;
+          }
+
+          &.control-left {
+            left: 6px;
+          }
+
+          &.control-right {
+            right: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .featured-product {
+    margin-bottom: 40px;
+
+    .container {
+      padding: 0 12px;
+    }
+
+    .featured-header {
+      margin-bottom: 20px;
+
+      .section-title {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 10px;
+      }
+
+      .featured-subtitle {
+        font-size: 13px;
+        line-height: 18px;
+        margin-bottom: 16px;
+      }
+    }
+
+    .featured-slider {
+      height: 320px;
+      border-radius: 6px;
+    }
+
+    .featured-slide {
+      .featured-content {
+        .featured-title {
+          font-size: 28px;
+          line-height: 32px;
+          margin-bottom: 20px;
+          padding: 0 12px;
+        }
+
+        .btn-featured {
+          width: 160px;
+          height: 44px;
+          padding: 10px 28px;
+          font-size: 14px;
+          border-radius: 14px;
+        }
+      }
+    }
+
+    .slider-pagination {
+      right: 8px;
+
+      .control-track {
+        height: 160px;
+        width: 2px;
+
+        &:before,
+        &:after {
+          width: 3px;
+          height: 3px;
+        }
+      }
+
+      .control-handle {
+        width: 40px;
+        height: 40px;
+
+        .control-arrow {
+          i {
+            font-size: 14px;
+          }
+
+          &.control-left {
+            left: 5px;
+          }
+
+          &.control-right {
+            right: 5px;
+          }
+        }
+      }
+    }
+  }
+}

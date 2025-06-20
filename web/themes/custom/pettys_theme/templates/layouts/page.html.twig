@@ -1,0 +1,112 @@
+<html{{html_attributes}}>
+	<head>
+		<head-placeholder token="{{ placeholder_token }}">
+			<title>{{ head_title|safe_join(' | ') }}</title>
+			<css-placeholder token="{{ placeholder_token }}">
+				<js-placeholder token="{{ placeholder_token }}"></head>
+				<body{{body_attributes}}>
+					{%
+          set classes = [
+             'block',
+             'block-' ~ configuration.provider|clean_class,
+             'block-' ~ plugin_id|clean_class,
+             'main-header'
+            ]
+          %}
+
+					{# région: Top bar #}
+					<div class="top-bar">
+						{% if page.top_bar %}
+							{{ page.top_bar}}
+						{% endif %}
+					</div>
+
+					{# région: Header #}
+					{% if page.primary_menu %}
+						{{ page.primary_menu }}
+					{% endif %}
+
+					{# région: Hero #}
+					{% if page.hero %}
+						{{ page.hero }}
+					{% endif %}
+
+					{# région: Brand Partners #}
+					{% if page.brand_partners %}
+						{{ page.brand_partners }}
+					{% endif %}
+
+					{# région: New Arrivals #}
+					{% if page.new_arrivals %}
+						{{ page.new_arrivals }}
+					{% endif %}
+
+					{# région: Sale Banner #}
+					{% if page.sale_banner %}
+						{{ page.sale_banner }}
+					{% endif %}
+
+					{# région: Categories #}
+					{% if page.categories %}
+						{{ page.categories }}
+					{% endif %}
+
+					{# région: Best Sellers #}
+					{% if page.best_sellers %}
+						{{ page.best_sellers }}
+					{% endif %}
+
+					{# Région : Pet Tech Banner #}
+					{% if page.pet_tech_banner %}
+						{{ page.pet_tech_banner }}
+					{% endif %}
+
+					{# Région : Product détail #}
+					{% if page.product_detail %}
+						{{ page.product_detail }}
+					{% endif %}
+
+					{# Région : Popular Products #}
+					{% if page.popular_products %}
+						{{ page.popular_products }}
+					{% endif %}
+
+					{# Région : Featured Slider #}
+					{% if page.featured_slider %}
+						{{ page.featured_slider }}
+					{% endif %}
+
+					{# Région : Flash Sale #}
+					{% if page.flash_sale %}
+						{{ page.flash_sale }}
+					{% endif %}
+
+					{# Région : Toys for Pets #}
+					{% if page.toys %}
+						{{ page.toys }}
+					{% endif %}
+
+					{# région: Faq #}
+					{% if page.faq %}
+						{{ page.faq }}
+					{% endif %}
+
+					{# région: Our Journey #}
+					{% if page.journey %}
+						{{ page.journey }}
+					{% endif %}
+
+					{# Région : Social Posts #}
+					{% if page.social_posts %}
+						{{ page.social_posts }}
+					{% endif %}
+
+					{# région: Footer #}
+					{% if page.footer %}
+						{{ page.footer }}
+					{% endif %}
+
+          {# {{ page.content }} #}
+
+					<js-bottom-placeholder token="{{ placeholder_token }}"></body>
+				</html>

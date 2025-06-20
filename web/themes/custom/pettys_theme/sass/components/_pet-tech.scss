@@ -1,0 +1,77 @@
+.pet-tech-banner {
+  width: 100%;
+  height: 350px;
+  background-image: $image-pet-tech;
+  background-size: cover;
+  background-position: $center;
+  position: $relative;
+  display: $flex;
+  align-items: $center;
+  justify-content: $center;
+  text-align: $center;
+  padding: $spacing-xl;
+  margin-bottom: 92px;
+
+  .container {
+    display: $flex;
+    flex-direction: column;
+    align-items: $center;
+    justify-content: $center;
+    border: 2px solid $color-yellow-E9;
+    padding: 50px 0;
+  }
+
+  h2 {
+    width: 671px;
+    height: 81px;
+    top: 4524px;
+    left: 384px;
+    font-family: $font-family-ubuntu;
+    font-weight: $font-weight-500;
+    font-size: $font-size-42;
+    line-height: 52px;
+    letter-spacing: -2%;
+    text-align: $center;
+    color: $color-white-C1;
+    margin-bottom: 55px;
+  }
+
+  .btn-innovations {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 269px !important;
+    height: 64px !important;
+    border-radius: 24px;
+    background: $color-yellow-FF;
+    font-family: $font-family-sans;
+    font-size: $font-size-20;
+    font-weight: $font-weight-400;
+    line-height: 100%;
+    text-transform: capitalize;
+    color: $color-black-25;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background: $color-yellow-7D;
+    }
+  }
+
+  @media (max-width: 800px) {
+    h2 {
+      width: 100%;
+      font-size: $font-size-32;
+      line-height: 42px;
+      margin-bottom: 20px;
+    }
+
+    .btn-innovations {
+      width: 50%;
+      height: 50px;
+      font-size: $font-size-18;
+    }
+  }
+}

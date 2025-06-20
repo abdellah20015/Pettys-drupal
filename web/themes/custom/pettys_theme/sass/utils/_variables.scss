@@ -1,0 +1,195 @@
+// Colors
+$color-primary: #B77B50;
+$color-secondary: #583101;
+$color-accent: #FFC107;
+$color-white: #FFFFFF;
+$color-black: #1A1A1A;
+$color-gray-light: #F5F5F5;
+$color-gray: #E0E0E0;
+$color-gray-dark: #888888;
+$color-best-seller-bg: #f8f6f6;
+$color-text-subtitle: #666666;
+$color-text-product-name: #2F2F2F;
+$color-price: #D4A017;
+$color-rating: #FFD700;
+$color-button-primary: #8b5a2b;
+$color-button-primary-hover: #6B3510;
+$color-text-dark: #1b1818;
+$color-border-category: #f5d9a4;
+$color-overlay-gradient: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+$color-count-bg: rgba(255, 165, 0, 0.8);
+$color-badge-bg: #ff69b4;
+$color-button-categories: #8b5a2b;
+$color-button-categories-hover: #6b4a1b;
+$color-tooltip-bg: #2f2f2f;
+$color-tooltip-reply: #1e90ff;
+$color-hero-bg: #f1e9dc;
+$color-pet: #FFF8D6;
+$color-flash-sale-button-hover: #E0C000;
+$color-flash-sale-border: #3D2208;
+
+$color-black-25: #252324;
+$color-black-CC: #252324CC;
+$color-black-F: #0000000F;
+$color-black-E5: #E5DDBF33;
+$color-transparent: transparent;
+$color-white-F5: #F5F5F5;
+$color-yellow-A5: #E9DAA5;
+$color-brown-9: #999999;
+$color-brown-A5: #E9DAA5;
+$color-semi-trensparent: rgba(0, 0, 0, 0.5);
+$color-gray-255: rgba(255, 255, 255, 0.5);
+$color-black-232: rgba(238, 236, 232, 0);
+$overlay-bg: rgba(0, 0, 0, 0.4);
+$color-blac-02: rgba(0, 0, 0, 0.2);
+$color-blac-03: rgba(0, 0, 0, 0.3);
+$color-blac-06: rgba(0, 0, 0, 0.6);
+$color-pink: #FF69B4;
+$color-brown-10: #683210;
+$color-brown-12: #733812;
+$color-brown-CB: #CB9274;
+$color-brown-94: #948373;
+$color-brown-E9: #E9DAA5B2;
+$color-brown-57: #572506;
+$color-brown-BC: #BCBCBCCF;
+$color-white-E0: #E0E0E0;
+$color-white-E8: #EEECE8;
+$color-yellow-A3: #FFE7A3;
+$color-yellow-E9: #E9DAA5CC;
+$color-yellow-FF: #FFE7A3;
+$color-yellow-7D: #FFDE7D;
+$color-white-C1: #FFF1C1;
+$color-gray-81: #818181;
+$color-yellow-400: #FFD400;
+$color-blue-04: #042436;
+$color-gray-73: #737373;
+
+
+// Polices
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+$font-family-ubuntu: 'Ubuntu', sans-serif;
+$font-family-sans: 'DM Sans', sans-serif;
+$font-primary: 'Poppins', sans-serif;
+
+
+
+// Typography
+$font-size-base: 16px;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$flash-sale-height: 0px;
+$flash-sale-padding: 20px;
+
+$font-size-8: 8px;
+$font-size-10: 10px;
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-15: 15px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-20: 20px;
+$font-size-22: 22px;
+$font-size-23: 23px;
+$font-size-24: 24px;
+$font-size-28: 28px;
+$font-size-32: 32px;
+$font-size-34: 34px;
+$font-size-38: 38px;
+$font-size-40: 40px;
+$font-size-42: 42px;
+$font-size-44: 44px;
+$font-size-54: 54px;
+$font-size-64: 64px;
+$font-size-73: 73px;
+
+$font-weight-50: 50px;
+$font-weight-500: 500;
+$font-weight-400: 400;
+$font-weight-600: 600;
+$font-weight-700: 700;
+$font-weight-900: 900;
+
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+$flash-sale-title-size: 28px;
+$flash-sale-end-size: 12px;
+
+$center: center;
+$flex: flex;
+$grid: grid;
+$relative: relative;
+$absolute: absolute;
+$cursor: pointer;
+$grabbing: grabbing;
+$grab: grab;
+
+
+// images
+$image-svg-language: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+$url-image-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23D3C1AD"/></svg>') no-repeat;
+$image-food-flash: url('../../images/flash-sale-bg.jpg');
+$image-pet-tech: url('../images/cat-feeding-tech.jpg');
+$image-sale-banner: url('../images/still-life-domestic-animal-accessories-composition 1.png');
+
+$image-paw-print: url('../../images/paw-print.png');
+$image-cat-paw: url("../../images/cat-paw.jpg");
+$image-hero: url("../../images/heroImage.png");
+$image-food-bowl: url('../../images/food-bowl.png');
+
+
+// Border
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-width: 1px;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Shadows
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+$shadow-box-black: 0 5px 15px rgba(0, 0, 0, 0.1);
+$shadow-box-primary: 0 0 0 2px rgba($color-primary, 0.2);
+
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+$transition-ease-3: all 0.3s ease;
+$transition-ease-opacity: opacity 0.3s ease;
+$transition-ease-transform: transform 0.3s ease;
+
+// Features
+$featured-padding: 60px;
+$featured-header-margin: 40px;
+$featured-title-size: 32px;
+$featured-subtitle-size: 16px;
+$featured-slider-height: 400px;
+$featured-content-padding: 60px 40px;
+$featured-btn-padding: 12px 24px;
+$featured-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+$featured-transition: 0.5s ease;
+
+// Container width
+$container-max-width: 1400px;
+$container-padding: 0 40px;

@@ -1,0 +1,238 @@
+.toys-for-pets {
+  padding: $spacing-xl $spacing-md;
+  background-color: $color-white;
+  text-align: $center;
+  margin-bottom: 70px;
+
+  .container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: $font-family-ubuntu;
+    font-weight: $font-weight-700;
+    font-size: $font-size-32;
+    line-height: 40px;
+    color: $color-black-25;
+    margin-bottom: 41px;
+  }
+
+  .section-subtitle {
+    font-family: $font-family-sans;
+    font-weight: $font-weight-400;
+    font-size: $font-size-18;
+    line-height: 62px;
+    letter-spacing: 0%;
+    text-align: $center;
+    margin-bottom: 52px;
+  }
+
+  .toys-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "wobble carllg"
+      "small-toys carllg";
+    gap: $spacing-md;
+    margin-bottom: 57.78px;
+
+    .toy-item {
+      position: $relative;
+      background: $color-white;
+      border-radius: $border-radius-md;
+      overflow: hidden;
+      box-shadow: $shadow-sm;
+      transition: transform $transition-normal;
+
+      &::after {
+        content: "";
+        position: $absolute;
+        top: 5%;
+        left: 5%;
+        right: 5%;
+        bottom: 5%;
+        border: 2px solid $color-brown-A5;
+        border-radius: 5px;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+      }
+
+      // Classes dynamiques pour les tailles
+      &--small {
+        width: 331px;
+        height: 331px;
+        border-radius: 10px;
+        grid-area: small-toys;
+
+        &:first-of-type {
+          justify-self: start;
+        }
+
+        &:last-of-type {
+          justify-self: end;
+        }
+      }
+
+      &--large {
+        border-radius: 10px;
+
+        &:first-of-type {
+          grid-area: wobble;
+          width: 672px;
+          height: 331px;
+
+          &::before {
+            padding-top: 50%;
+          }
+        }
+
+        &:nth-of-type(2) {
+          grid-area: carllg;
+          width: 610px;
+          height: 668px;
+
+          &::before {
+            padding-top: 110%;
+          }
+        }
+      }
+
+      @include hover-effect {
+        transform: scale(1.05);
+      }
+
+      img {
+        position: $absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .toy-title {
+        position: $absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        padding: $spacing-sm $spacing-md;
+        color: $color-white;
+        font-family: $font-family-ubuntu;
+        font-weight: $font-weight-700;
+        font-size: $font-size-32;
+        text-align: $center;
+        margin: 0;
+        border-radius: 4px;
+        white-space: nowrap;
+        z-index: 2;
+      }
+    }
+  }
+
+  .btn-all-toys {
+    display: inline-block;
+    width: 242px;
+    height: 74px;
+    border-radius: 25px;
+    background: $color-brown-10;
+    font-family: $font-family-ubuntu;
+    font-weight: $font-weight-400;
+    font-size: $font-size-20;
+    line-height: 74px;
+    text-transform: capitalize;
+    color: $color-white;
+    cursor: $cursor;
+    border: none;
+    text-align: $center;
+
+    @include hover-effect {
+      background-color: $color-button-primary-hover;
+    }
+
+    i {
+      margin-left: $spacing-sm;
+    }
+
+    &:hover {
+      border: 2px solid $color-brown-12;
+      background: none;
+      color: $color-brown-12;
+    }
+  }
+
+  @media (min-width: 801px) {
+    .toys-grid {
+      .toy-item {
+        &--small {
+          max-width: 331px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    padding: $spacing-md;
+
+    .section-title {
+      font-size: $font-size-24;
+    }
+
+    .section-subtitle {
+      font-size: $font-size-14;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .toys-grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "wobble"
+        "carllg"
+        "small-toys";
+      gap: $spacing-sm;
+
+      .toy-item {
+        width: 100% !important;
+        height: auto !important;
+
+        &::before {
+          padding-top: 75% !important;
+        }
+
+        &--small {
+          max-width: 48%;
+
+          &:first-of-type {
+            justify-self: start;
+            display: inline-block;
+          }
+
+          &:last-of-type {
+            justify-self: end;
+            display: inline-block;
+          }
+        }
+
+        .toy-title {
+          font-size: $font-size-16;
+          padding: $spacing-xs $spacing-sm;
+        }
+      }
+    }
+
+    .btn-all-toys {
+      width: 200px;
+      height: 60px;
+      font-size: $font-size-18;
+      line-height: 60px;
+    }
+  }
+}

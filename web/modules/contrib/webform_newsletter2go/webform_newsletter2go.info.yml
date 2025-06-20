@@ -1,0 +1,13 @@
+name: 'Webform Newsletter2Go'
+type: module
+description: 'Newsletter2Go Webform Inegration'
+package: Webform
+core_version_requirement: ^10.1 || ^11
+configure: webform_newsletter2go.settings
+dependencies:
+  - 'webform:webform'
+
+# Information added by Drupal.org packaging script on 2024-07-04
+version: '2.0.0'
+project: 'webform_newsletter2go'
+datestamp: 1720120668

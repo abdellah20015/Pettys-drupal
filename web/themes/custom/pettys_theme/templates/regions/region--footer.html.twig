@@ -1,0 +1,36 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      {{ content }}
+      <div class="footer-column newsletter">
+        <h3 class="footer-title-logo">
+          {% if site_logo %}
+            <img src="{{ site_logo }}" alt="{{ site_name|default('Pettys') }} Logo" class="footer-logo">
+          {% else %}
+            <img src="{{ theme_path }}/images/petty-logo.png" alt="Pettys Logo" class="footer-logo">
+          {% endif %}
+        </h3>
+        {{ drupal_block('webform_block', { webform_id: 'newsletter_subscribe' }) }}
+        <p class="newsletter-text">{{ newsletter_text|default('Glow from the inside out! Inbox to INBOX!') }}</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        {% for link in social_links %}
+          <a href="{{ link.url }}" aria-label="{{ link.label|striptags|trim }}" target="_blank">
+            <i class="{{ link.icon }}"></i>
+          </a>
+        {% endfor %}
+      </div>
+      <p class="copyright">{{ copyright_text|default('© Pettys ' ~ 'now'|date('Y') ~ ', All Rights Reserved') }}</p>
+      <div class="payment-methods">
+        {% if payment_methods_image %}
+          <img src="{{ payment_methods_image }}" alt="Payment Methods">
+        {% else %}
+          <img src="{{ theme_path }}/images/icons_payment.png" alt="Payment Methods">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <button href="#top-bar" class="back-to-top"><i class="bi bi-arrow-up"></i></button>
+</footer>

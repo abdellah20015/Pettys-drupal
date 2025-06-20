@@ -1,0 +1,39 @@
+{% set popular_products_data = popular_products_data|default({}) %}
+     {% set products = popular_products|default([]) %}
+     {% set theme_path = theme_path|default('') %}
+
+     <section class="popular-products">
+       <div class="container">
+         <h2 class="section-title">{{ popular_products_data.title }}</h2>
+         <p class="section-subtitle">{{ popular_products_data.subtitle }}</p>
+         <div class="products-grid">
+           <div class="hero-image-left-wrapper">
+             <img class="hero-image-left" src="{{ theme_path }}/images/hero-cat.jpg" alt="Chat avec propriétaire" loading="lazy" />
+           </div>
+
+           {% for product in products %}
+             <div class="product-card">
+               <div class="card">
+                 <img src="{{ product.image }}" alt="{{ product.name|escape }}" loading="lazy" />
+               </div>
+               <h3 class="product-name">{{ product.name|t|escape }}</h3>
+               <div class="product-price">
+                 <span class="current-price">{{ product.current_price }}</span>
+                 {% if product.old_price %}
+                   <span class="old-price">{{ product.old_price }}</span>
+                 {% endif %}
+               </div>
+               <div class="product-rating">{{ product.rating|raw }}</div>
+             </div>
+           {% endfor %}
+
+           <a href="{{ popular_products_data.button_link.url }}" class="btn-all-products">
+             {{ popular_products_data.button_link.title }} <i class="bi bi-arrow-right"></i>
+           </a>
+
+           <div class="hero-image-right-wrapper">
+             <img class="hero-image-right" src="{{ theme_path }}/images/hero-dog.jpg" alt="Chien avec propriétaire" loading="lazy" />
+           </div>
+         </div>
+       </div>
+     </section>

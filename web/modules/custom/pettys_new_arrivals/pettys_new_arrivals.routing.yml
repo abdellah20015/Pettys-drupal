@@ -1,0 +1,7 @@
+pettys_new_arrivals.form:
+  path: '/admin/pettys/new-arrivals'
+  defaults:
+    _controller: '\Drupal\pettys_new_arrivals\Controller\NewArrivalsController::displayForm'
+    _title: 'Nouvelles Arrivées'
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,23 @@
+{
+  "name": "drupal/webform_newsletter2goo",
+  "type": "drupal-module",
+  "description": "Newsletter2Go Webform Inegration.",
+  "homepage": "https://www.drupal.org/project/webform_newsletter2go",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Ivan Trokhanenko (i-trokhanenko)",
+      "homepage": "https://www.drupal.org/u/i-trokhanenko",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/webform": "^6",
+    "drupal/core": "^10.1 || ^11"
+  },
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/webform_newsletter2go",
+    "source": "https://git.drupalcode.org/project/webform_newsletter2go"
+  },
+  "minimum-stability": "dev"
+}

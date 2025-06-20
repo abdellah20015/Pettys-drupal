@@ -1,0 +1,30 @@
+name: Pettys Theme
+type: theme
+description: A custom Drupal 10 theme for the Pettys pet store website.
+core_version_requirement: ^10 || ^11
+base theme: false
+libraries:
+  - pettys_theme/global-styling
+  - pettys_theme/bootstrap-icons
+screenshot: 'screenshot.png'
+logo: logo.svg
+regions:
+  top_bar: Top Bar
+  primary_menu: Primary Menu
+  hero: Hero
+  brand_partners: Brand Partners
+  new_arrivals: New Arrivals
+  sale_banner: Sale Banner
+  categories: Categories
+  best_sellers: Best Sellers
+  pet_tech_banner: Pet Tech Banner
+  product_detail: Product Detail
+  popular_products: Popular Products
+  featured_slider: Featured Slider
+  flash_sale: Flash Sale
+  toys: Toys
+  faq: FAQ
+  journey: Journey
+  social_posts: Social Posts
+  footer: Footer
+  content: Content

@@ -1,0 +1,73 @@
+<div class="product-detail-wrapper">
+	<section class="product-detail">
+		<div class="container">
+			<div class="product-info" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">
+				{% if product_detail.badge %}
+					<span class="badge">{{ product_detail.badge }}</span>
+				{% endif %}
+
+				<h1 class="product-title">{{ product_detail.title|default('Titre du produit') }}</h1>
+
+				<div class="product-rating">
+					<div class="stars">
+						{% set rating = product_detail.rating|default(0)|number_format(1) %}
+						{% for i in 1..5 %}
+							{% if i <= rating %}
+								<i class="fas fa-star star"></i>
+							{% elseif i <= rating + 0.5 %}
+								<i class="fas fa-star-half-alt star"></i>
+							{% else %}
+								<i class="far fa-star star"></i>
+							{% endif %}
+						{% endfor %}
+					</div>
+					{% if product_detail.reviews_count > 0 %}
+						<span class="reviews-count">({{ product_detail.reviews_count }}
+							avis)</span>
+					{% endif %}
+				</div>
+
+				<div class="product-price">{{ product_detail.price|number_format(2) }}{{ product_detail.currency_symbol }}
+				</div>
+				{% if product_detail.description %}
+					<div class="product-description">{{ product_detail.description }}</div>
+				{% endif %}
+
+				{% if product_detail.colors|length > 0 %}
+					<div class="product-colors">
+						<div class="color-title">Colors :</div>
+						<div class="color-options">
+							{% for color in product_detail.colors %}
+								<div class="color-option color-{{ color.css_class }} {{ color.css_class }} {% if loop.first %}active{% endif %}" data-color="{{ color.css_class }}|{{ color.css_class }}"></div>
+							{% endfor %}
+						</div>
+					</div>
+				{% endif %}
+
+				<div class="action-buttons">
+					<a class="btn btn-cart">
+						<span>{{ product_detail.add_to_cart_label }}</span>
+					</a>
+					<a href="{{ content.field_buy_now_url_data.url }}" class="btn btn-buy">
+						<span>{{ content.field_buy_now_url_data.title }}</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="product-gallery" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">
+				<div class="main-image">
+					<img src="{{ product_detail.main_image }}" alt="{{ product_detail.title }}" loading="lazy" style="opacity: 1;">
+				</div>
+				{% if product_detail.thumbnail_images|length > 0 %}
+					<div class="thumbnail-container">
+						{% for thumbnail in product_detail.thumbnail_images %}
+							<div class="thumbnail">
+								{{ thumbnail|raw }}
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+</div>

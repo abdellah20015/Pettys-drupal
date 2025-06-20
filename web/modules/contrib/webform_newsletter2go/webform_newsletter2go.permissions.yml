@@ -1,0 +1,3 @@
+administer webform_newsletter2go settings:
+  title: 'Permission to manage Webform Newsletter2Go settings'
+  restrict access: TRUE

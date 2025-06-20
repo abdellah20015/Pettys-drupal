@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function pettys_new_arrivals_theme() {
+  return [
+    'pettys_new_arrivals' => [
+      'variables' => [
+        'new_arrivals_products' => [],
+        'theme_path' => '',
+        'section_title' => '',
+        'section_subtitle' => '',
+      ],
+    ],
+  ];
+}

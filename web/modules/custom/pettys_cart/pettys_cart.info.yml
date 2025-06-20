@@ -1,0 +1,5 @@
+name: Pettys Cart
+type: module
+description: Module personnalisé pour gérer un panier simple.
+core_version_requirement: ^10 || ^11
+package: Custom

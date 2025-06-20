@@ -1,0 +1,7 @@
+pettys_commerce.change_currency:
+  path: '/api/change-currency'
+  defaults:
+    _controller: '\Drupal\pettys_commerce\Controller\CurrencyController::changeCurrency'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'

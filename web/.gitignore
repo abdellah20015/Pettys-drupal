@@ -1,0 +1,19 @@
+# Fichiers de configuration sensibles
+sites/*/settings.php
+sites/*/settings.local.php
+sites/*/services.yml
+
+# Fichiers uploadés
+sites/*/files/
+
+# Fichiers temporaires
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Vendor (si vous utilisez Composer)
+vendor/
+
+# Cache
+sites/*/cache/

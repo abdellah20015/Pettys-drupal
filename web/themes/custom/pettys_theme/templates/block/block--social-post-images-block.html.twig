@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Theme override for the Social Post Images Block.
+ */
+#}
+<div{{ attributes }}>
+  <div class="social-post-images">
+    {% for image in social_images %}
+      <div class="image-item">
+        <img loading="lazy" src="{{ image.url }}" alt="{{ image.alt }}" width="{{ image.width }}" height="{{ image.height }}">
+      </div>
+    {% endfor %}
+  </div>
+</div>

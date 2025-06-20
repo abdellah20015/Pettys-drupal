@@ -1,0 +1,5 @@
+name: Newsletter
+type: module
+description: 'Handles newsletter subscriptions.'
+core_version_requirement: ^10 || ^11
+package: Custom

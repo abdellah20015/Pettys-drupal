@@ -1,0 +1,6 @@
+parameters:
+	ignoreErrors:
+	  -
+	    message: "#^Method Drupal\\\\commerce_exchanger\\\\Form\\\\ExchangeRatesForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+	    count: 1
+	    path: src/Form/ExchangeRatesForm.php

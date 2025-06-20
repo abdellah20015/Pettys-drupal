@@ -1,0 +1,12 @@
+<!-- SOCIAL BLOCK LOADED -->
+<div class="social-icons">
+  {% if social_links is not empty %}
+    {% for item in social_links %}
+      <a href="{{ item.url }}" title="{{ item.label }}" target="_blank" rel="noopener">
+        <i class="{{ item.icon }}"></i>
+      </a>
+    {% endfor %}
+  {% else %}
+    <p>NO ICON FOUND</p>
+  {% endif %}
+</div>

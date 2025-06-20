@@ -1,0 +1,108 @@
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @include responsive(md) {
+    padding: 0 $spacing-lg;
+  }
+}
+
+.top-bar {
+  background: $color-brown-10;
+  color: $color-white;
+  padding: $spacing-xs 0;
+
+  .container {
+    @include flex(row, space-between, center);
+  }
+
+  .social-icons {
+    @include flex(row, flex-start, center);
+    gap: 26px;
+
+    a {
+      color: $color-white;
+      font-size: $font-size-18;
+
+      @include hover-effect {
+        color: $color-accent;
+      }
+    }
+  }
+
+  .promo-text {
+    @include flex(row, center, center);
+    font-family: $font-family-ubuntu;
+    font-weight: $font-weight-400;
+    font-size: $font-size-15;
+    line-height: 100%;
+
+    .btn-small {
+      width: 94px;
+      height: 22px;
+      top: 1px;
+      left: 257px;
+      border-radius: 4px;
+      background: $color-yellow-FF;
+      border: none;
+      color: $color-brown-10;
+      font-family: $font-family-ubuntu;
+      font-weight: $font-weight-400;
+      font-size: $font-size-12;
+      line-height: 100%;
+      cursor: $cursor;
+      text-align: $center;
+      display: inline-flex;
+      justify-content: $center;
+      align-items: $center;
+      padding: 0 5px;
+      text-decoration: none;
+    }
+  }
+
+  .language-currency {
+    @include flex(row, flex-end, center);
+    width: 134px;
+    height: 16px;
+    gap: 24px;
+
+    .select-custom {
+      gap: 2px;
+      font-family: $font-family-ubuntu;
+      font-weight: $font-weight-400;
+      font-size: $font-size-14;
+      line-height: 100%;
+      background-color: $color-brown-10;
+      color: $color-white;
+      border: none;
+      cursor: $cursor;
+
+      option {
+        background-color: $color-white;
+        color: $color-black;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .social-icons {
+      display: none;
+    }
+
+    .promo-text {
+      text-align: $center;
+      font-size: $font-size-12;
+    }
+
+    .language-currency {
+      display: none;
+    }
+  }
+
+}

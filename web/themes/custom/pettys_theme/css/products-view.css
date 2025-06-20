@@ -1,0 +1,290 @@
+/* Reset et styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container principal */
+.views-view-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Suppression des styles par défaut */
+.views-view-grid.horizontal.cols-4.clearfix {
+  display: grid;
+}
+
+.views-row {
+  display: contents;
+}
+
+.views-col {
+  width: 100% !important;
+}
+
+/* Styles pour les cartes complètes (avec prix et rating) */
+.product-card-complete {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border: 1px solid #f0f0f0;
+}
+
+.product-card-complete:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-color: #e0e0e0;
+}
+
+.product-card-complete .image-container {
+  position: relative;
+  overflow: hidden;
+  height: 240px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.product-card-complete .views-field-field-image-du-produit img {
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card-complete:hover .views-field-field-image-du-produit img {
+  transform: scale(1.05);
+}
+
+.product-card-complete .card-content {
+  padding: 20px;
+}
+
+.product-card-complete .views-field-title {
+  margin-bottom: 12px;
+}
+
+.product-card-complete .views-field-title a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+.product-card-complete .views-field-title a:hover {
+  color: #007bff;
+}
+
+/* Conteneur des prix */
+.price-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.product-card-complete .views-field-field-prix-actuel {
+  font-size: 24px;
+  font-weight: 700;
+  color: #e74c3c;
+}
+
+.product-card-complete .views-field-field-ancien-prix {
+  font-size: 16px;
+  color: #999;
+  text-decoration: line-through;
+  position: relative;
+}
+
+/* Système de notation */
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: #ffd700;
+  font-size: 16px;
+}
+
+.star.empty {
+  color: #ddd;
+}
+
+.rating-text {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Styles pour les cartes simples (image + titre seulement) */
+.product-card-simple {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #f5f5f5;
+}
+
+.product-card-simple:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-simple .image-container {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.product-card-simple .views-field-field-image-du-produit img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card-simple:hover .views-field-field-image-du-produit img {
+  transform: scale(1.03);
+}
+
+.product-card-simple .card-content {
+  padding: 16px;
+  text-align: center;
+}
+
+.product-card-simple .views-field-title a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.product-card-simple .views-field-title a:hover {
+  color: #3498db;
+}
+
+/* Séparateurs de sections */
+.products-section {
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 24px;
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .views-view-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .product-card-complete .image-container,
+  .product-card-simple .image-container {
+    height: 180px;
+  }
+
+  .product-card-complete .card-content {
+    padding: 16px;
+  }
+
+  .product-card-complete .views-field-title a {
+    font-size: 16px;
+  }
+
+  .product-card-complete .views-field-field-prix-actuel {
+    font-size: 20px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .views-view-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .product-card-complete:hover,
+  .product-card-simple:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Animation d'apparition */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card-complete,
+.product-card-simple {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Styles pour les champs vides */
+.views-field-field-ancien-prix:empty,
+.views-field-field-prix-actuel:empty,
+.views-field-field-evaluation:empty {
+  display: none;
+}
+
+/* Amélioration de l'accessibilité */
+.product-card-complete:focus-within,
+.product-card-simple:focus-within {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.views-field-title a:focus {
+  outline: none;
+  color: #007bff;
+  text-decoration: underline;
+}
+

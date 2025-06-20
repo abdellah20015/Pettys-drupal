@@ -1,0 +1,24 @@
+<html{{html_attributes}}>
+	<head>
+		<head-placeholder token="{{ placeholder_token }}">
+			<title>{{ head_title|safe_join(' | ') }}</title>
+			<css-placeholder token="{{ placeholder_token }}">
+				<js-placeholder token="{{ placeholder_token }}"></head>
+				<body{{body_attributes}}>
+					{%
+          set classes = [
+             'block',
+             'block-' ~ configuration.provider|clean_class,
+             'block-' ~ plugin_id|clean_class,
+             'main-header'
+            ]
+          %}
+
+					{# région: Content #}
+					<div class="content">
+						{{ page.content }}
+					</div>
+
+
+					<js-bottom-placeholder token="{{ placeholder_token }}"></body>
+				</html>

@@ -1,0 +1,13 @@
+newsletter.subscriber:
+  type: config_object
+  label: 'Newsletter Subscriber'
+  mapping:
+    id:
+      type: integer
+      label: 'ID'
+    email:
+      type: string
+      label: 'Email'
+    created:
+      type: integer
+      label: 'Created timestamp'

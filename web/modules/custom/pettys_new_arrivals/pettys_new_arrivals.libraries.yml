@@ -1,0 +1,7 @@
+new-arrivals:
+  version: 1.x
+  css:
+    theme:
+      assets/css/new-arrivals.css: {}
+  js:
+    assets/js/new-arrivals.js: {}

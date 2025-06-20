@@ -1,0 +1,35 @@
+<section class="toys-for-pets">
+  <div class="container">
+    {% if toys_data.title %}
+      <h2 class="section-title">{{ toys_data.title }}</h2>
+    {% endif %}
+
+    {% if toys_data.subtitle %}
+      <p class="section-subtitle">{{ toys_data.subtitle }}</p>
+    {% endif %}
+
+    {% if toys %}
+      <div class="toys-grid">
+        {% for toy in toys %}
+          <div class="toy-item{% if toy.size == 'large' %} toy-item--large{% elseif toy.size == 'small' %} toy-item--small{% endif %}">
+            {% if toy.image %}
+              <img src="{{ toy.image }}" alt="{{ toy.image_alt|default(toy.title) }}">
+            {% endif %}
+            {% if toy.title %}
+              <h3 class="toy-title">{{ toy.title }}</h3>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="debug-message">Aucun jouet trouvé. Vérifiez les produits référencés dans le bloc.</p>
+    {% endif %}
+
+    {% if toys_data.button_link.title %}
+      <a href="{{ toys_data.button_link.url|default('#') }}" class="btn-all-toys">
+        {{ toys_data.button_link.title }}
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    {% endif %}
+  </div>
+</section>

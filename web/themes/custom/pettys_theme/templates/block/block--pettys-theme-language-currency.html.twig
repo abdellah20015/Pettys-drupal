@@ -1,0 +1,20 @@
+<div class="language-currency">
+  {% if language_options %}
+    <select class="select-custom" id="language-switcher" name="language">
+      {% for code, name in language_options %}
+        <option value="{{ code }}" {{ code == current_language ? 'selected' : '' }}>{{ name }}</option>
+      {% endfor %}
+    </select>
+  {% else %}
+    <p>Erreur : Aucune langue disponible</p>
+  {% endif %}
+  {% if currency_options %}
+    <select class="select-custom" id="currency-switcher" name="currency">
+      {% for code, name in currency_options %}
+        <option value="{{ code }}" {{ code == current_currency ? 'selected' : '' }}>{{ name }}</option>
+      {% endfor %}
+    </select>
+  {% else %}
+    <p>Erreur : Aucune devise disponible</p>
+  {% endif %}
+</div>

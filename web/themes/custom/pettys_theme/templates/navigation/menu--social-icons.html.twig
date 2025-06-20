@@ -1,0 +1,9 @@
+{% if items %}
+  <div class="social-icons">
+    {% for item in items %}
+      <a href="{{ item.url }}" target="_blank">
+        <i class="{{ item.attributes.class|e('html_attr') }}"></i>
+      </a>
+    {% endfor %}
+  </div>
+{% endif %}

@@ -1,0 +1,9 @@
+webform_newsletter2go.settings:
+  path: '/admin/config/services/newsletter2go'
+  defaults:
+    _form: '\Drupal\webform_newsletter2go\Form\Newsletter2GoForm'
+    _title: 'Newsletter2Go'
+  requirements:
+    _permission: 'administer webform_newsletter2go settings'
+  options:
+    _admin_route: TRUE

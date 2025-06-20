@@ -1,0 +1,58 @@
+{% set block_content = elements.content['#block_content'] %}
+{% set slides = [] %}
+{% for slide_ref in block_content.field_hero_slide %}
+  {% set slide_node = slide_ref.entity %}
+  {% if slide_node %}
+    {% set background_image = '' %}
+    {% if slide_node.field_hero_slide_background.entity and slide_node.field_hero_slide_background.entity.field_media_image.entity %}
+      {% set background_image = file_url(slide_node.field_hero_slide_background.entity.field_media_image.entity.uri.value) %}
+    {% endif %}
+
+    {# Gestion du champ Link avec URL et texte #}
+    {% set button_url = '' %}
+    {% set button_text = '' %}
+    {% if slide_node.field_hero_slide_button_url.0 %}
+      {% set button_url = slide_node.field_hero_slide_button_url.0.url %}
+      {% set button_text = slide_node.field_hero_slide_button_url.0.title %}
+    {% endif %}
+
+    {% set slides = slides|merge([{
+      'title': slide_node.field_hero_slide_title.value|raw,
+      'description': slide_node.field_hero_slide_description.value|raw,
+      'button_url': button_url,
+      'button_text': button_text,
+      'background_image': background_image
+    }]) %}
+  {% endif %}
+{% endfor %}
+
+{% if slides|length > 0 %}
+  <section class="hero" id="hero">
+    <div class="hero-bg-elements"></div>
+    <div class="hero-slider-wrapper">
+      {% for slide in slides %}
+        <div class="hero-slide {% if loop.first %}active{% endif %}">
+          <div class="container">
+            <div class="hero-content">
+              <h1>{{ slide.title }}</h1>
+              <p>{{ slide.description }}</p>
+              {% if slide.button_url and slide.button_url != '#' %}
+                <a href="{{ slide.button_url }}" class="btn-primary">{{ slide.button_text }}</a>
+              {% endif %}
+            </div>
+          </div>
+          {% if slide.background_image %}
+            <div class="hero-background" style="background: url('{{ slide.background_image }}') no-repeat center; background-size: cover;"></div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="hero-dots">
+      {% for slide in slides %}
+        <span class="dot {% if loop.first %}active{% endif %}"></span>
+      {% endfor %}
+    </div>
+  </section>
+{% else %}
+  <p>Aucun slide configuré.</p>
+{% endif %}

@@ -1,0 +1,23 @@
+{% if items %}
+  <nav class="main-nav">
+    <ul class="nav-list">
+      {% for item in items %}
+        <li class="nav-item{% if item.below %} has-dropdown{% endif %}{% if item.is_active %} active{% endif %}">
+          <a class="nav" href="{{ item.url }}"{{ item.attributes }}>
+            {{ item.title }}
+            {% if item.below %}
+              <i class="fas fa-chevron-down"></i>
+            {% endif %}
+          </a>
+          {% if item.below %}
+            <ul class="dropdown-menu">
+              {% for below_item in item.below %}
+                <li><a href="{{ below_item.url }}"{{ below_item.attributes }}>{{ below_item.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

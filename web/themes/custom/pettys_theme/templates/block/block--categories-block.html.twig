@@ -1,0 +1,33 @@
+{% set categories_data = categories_data|default({}) %}
+{% set categories = categories|default([]) %}
+{% set theme_path = theme_path|default('') %}
+
+<section id="categories" class="categories">
+  <div class="container">
+    <h2 class="section-title">{{ categories_data.title|t|default('Categories') }}</h2>
+    <p class="section-subtitle">{{ categories_data.subtitle|t|default('Navigate By Choosing The Type Of Pets You Own.') }}</p>
+    <div class="categories-grid">
+      {% if categories is empty %}
+        <p>{{ 'No categories found.'|t }}</p>
+      {% else %}
+        {% for category in categories %}
+          <div class="category-item {{ category.size|default('small') }}">
+            <a href="{{ category.url|default('#') }}" class="category-link">
+              <img src="{{ category.image|default(theme_path ~ '/images/category-placeholder.jpg') }}" alt="{{ category.name|t|escape }}" class="category-image" loading="lazy">
+              <div class="category-overlay">
+                <div class="category-content{{ category.size == 'small' ? '1' : '' }}">
+                  <h3 class="category-name">{{ category.name|t|escape }}</h3>
+                  <span class="item-count">{{ category.item_count }} {{ 'item'|t }}{% if category.item_count != 1 %}s{% endif %}</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <a href="{{ categories_data.button_link.url|default('/categories') }}" class="btn-all-categories" aria-label="{{ categories_data.button_link.title|t|default('All Categories') }}">
+      <span class="btn-text">{{ categories_data.button_link.title|t|default('All Categories') }}</span>
+      <i class="bi bi-arrow-right"></i>
+    </a>
+  </div>
+</section>

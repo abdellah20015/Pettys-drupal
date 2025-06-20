@@ -1,0 +1,289 @@
+#block-pettys-theme-our-company-journey-timeline {
+  padding: $spacing-xxl 0;
+  background-color: $color-white;
+  margin-bottom: 86px;
+
+  /* Titre principal - "Our Journey" */
+  >div:nth-child(2) {
+    font-family: $font-family-ubuntu;
+    font-weight: $font-weight-700;
+    font-size: $font-size-40;
+    color: $color-brown-10;
+    text-align: $center;
+    margin-bottom: $spacing-md;
+  }
+
+  /* Sous-titre - "Follow our growth and milestones through the years." */
+  >div:nth-child(3) {
+    font-family: $font-family-sans;
+    font-weight: $font-weight-400;
+    font-size: $font-size-18;
+    color: $color-gray-73;
+    text-align: $center;
+    margin-bottom: $spacing-xl;
+  }
+
+  /* Container des éléments timeline */
+  >div:nth-child(4) {
+    margin-bottom: $spacing-xxl;
+  }
+
+  /* Timeline items */
+  .paragraph--type--timeline-item {
+    display: none;
+    max-width: 1000px;
+    margin: 0 auto 30px;
+    border: 2px solid $color-yellow-E9;
+    border-radius: $border-radius-md;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+
+    &.active {
+      display: $flex;
+      animation: fadeIn $transition-slow forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY($spacing-lg);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Structurer les éléments pour qu'ils s'affichent en ligne */
+    display: $flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* Mettre l'image à gauche, tout le reste à droite */
+    >div:last-child {
+      flex: 1 0 50%;
+      order: 1;
+      height: 350px;
+    }
+
+    >div:not(:last-child) {
+      flex: 1 0 50%;
+      order: 2;
+      padding: $spacing-md;
+    }
+
+    /* Conteneur de texte */
+    >div:not(:last-child) {
+      padding: $spacing-xl;
+      display: $flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Année */
+    >div:first-child {
+      display: none;
+    }
+
+    /* Titre */
+    >div:nth-child(2) {
+      font-family: $font-family-ubuntu;
+      font-weight: $font-weight-700;
+      font-size: $font-size-28;
+      color: $color-brown-10;
+      margin-bottom: $spacing-md;
+      line-height: 34px;
+    }
+
+    /* Description */
+    >div:nth-child(3) {
+      font-family: $font-family-sans;
+      font-weight: $font-weight-400;
+      font-size: $font-size-16;
+      color: $color-gray-73;
+      line-height: 22px;
+      white-space: pre-line; // pour conserver les sauts de ligne
+      padding: 20px 0;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+
+      // Animation douce à l'apparition
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInSlide 1s ease-out forwards;
+    }
+
+    @keyframes fadeInSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /* Image */
+    >div:last-child {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .visually-hidden {
+        display: none;
+      }
+    }
+  }
+
+  /* Timeline Navigation */
+  .timeline-navigation {
+    display: $flex;
+    justify-content: $center;
+    align-items: $center;
+    position: $relative;
+    z-index: 1;
+    padding: 0 $spacing-xl;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .prev,
+    .next {
+      background: $color-white;
+      border: 1px solid $color-gray;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: $flex;
+      align-items: $center;
+      justify-content: $center;
+      font-size: $font-size-base;
+      color: $color-text-subtitle;
+      cursor: $cursor;
+      transition: all $transition-normal;
+
+      &:hover {
+        background-color: $color-gray-light;
+        color: $color-text-product-name;
+      }
+
+      &:disabled {
+        color: $color-gray-dark;
+        cursor: not-allowed;
+      }
+
+      .bi {
+        font-size: $font-size-18;
+      }
+    }
+
+    .timeline-years {
+      display: $flex;
+      justify-content: space-between;
+      align-items: $center;
+      margin: 0 $spacing-lg;
+      background: $color-white;
+      padding: 0 $spacing-lg;
+      flex: 1;
+      max-width: 600px;
+      min-height: 40px;
+
+      .year {
+        font-size: $font-size-18;
+        font-weight: $font-weight-medium;
+        color: $color-gray-dark;
+        padding: $spacing-sm $spacing-md;
+        cursor: pointer;
+        transition: all $transition-normal;
+        position: $relative;
+        text-align: $center;
+
+        &:hover {
+          color: $color-text-product-name;
+        }
+
+        &.active {
+          color: $color-black;
+          font-size: $font-size-24;
+          font-weight: $font-weight-bold;
+
+          &:after {
+            content: '';
+            position: $absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background-color: $color-accent;
+          }
+        }
+      }
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 800px) {
+    padding: $spacing-lg 0;
+    margin-bottom: 50px;
+
+    .paragraph--type--timeline-item {
+      flex-direction: column;
+      max-width: 90%;
+
+      >div:last-child,
+      >div:not(:last-child) {
+        flex: 1 0 100%;
+        order: initial;
+      }
+
+      >div:last-child {
+        height: 220px;
+        order: 1;
+      }
+
+      >div:not(:last-child) {
+        padding: $spacing-md;
+        order: 2;
+      }
+
+      >div:nth-child(2) {
+        font-size: $font-size-24;
+        line-height: 30px;
+      }
+    }
+
+    .timeline-navigation {
+      padding: 0 $spacing-sm;
+
+      .prev,
+      .next {
+        width: 32px;
+        height: 32px;
+      }
+
+      .timeline-years {
+        max-width: 400px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0 $spacing-xs;
+        gap: 10px;
+
+        .year {
+          font-size: $font-size-14;
+          padding: $spacing-xs;
+          white-space: nowrap;
+
+          &.active {
+            font-size: $font-size-18;
+
+            &:after {
+              width: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

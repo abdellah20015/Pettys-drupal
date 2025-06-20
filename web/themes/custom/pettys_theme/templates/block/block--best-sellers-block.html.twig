@@ -1,0 +1,36 @@
+{% set best_sellers_data = best_sellers_data|default({}) %}
+{% set best_sellers_products = best_sellers_products|default([]) %}
+
+<section class="best-seller">
+  <div class="container">
+    <h2 class="section-title">{{ best_sellers_data.title|t }}</h2>
+    <p class="section-subtitle">{{ best_sellers_data.subtitle|t }}</p>
+    <div class="best-seller-grid">
+      {% if best_sellers_products is empty %}
+        <p>{{ 'Aucun produit trouvé pour les Meilleures Ventes.'|t }}</p>
+      {% else %}
+        {% for product in best_sellers_products %}
+          <div class="best-seller-item">
+            <div class="card">
+              <img src="{{ product.image }}" alt="{{ product.name|t }}" loading="lazy">
+            </div>
+            <h3 class="product-name">{{ product.name|t }}</h3>
+            <div class="product-price">
+              <span class="current-price">{{ product.current_price }}</span>
+              {% if product.old_price %}
+                <span class="old-price">{{ product.old_price }}</span>
+              {% endif %}
+            </div>
+            <div class="product-rating">{{ product.rating|default('★★★★☆') }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="button-wrapper">
+      <a href="{{ best_sellers_data.button_link.url|default('/produits') }}" class="btn-all-products">
+        {{ best_sellers_data.button_link.title|t|default('Tous les produits') }}
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>

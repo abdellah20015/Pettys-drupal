@@ -1,0 +1,25 @@
+pettys_cart.add_to_cart:
+  path: '/cart/add/{product_key}/{variation_key}'
+  defaults:
+    _controller: '\Drupal\pettys_cart\Controller\CartController::addToCart'
+    _title: 'Ajouter au panier'
+  requirements:
+    _permission: 'access content'
+    product_key: '[a-zA-Z0-9_-]+'
+    variation_key: '[a-zA-Z0-9_-]+'
+
+pettys_cart.view_cart:
+  path: '/cart'
+  defaults:
+    _controller: '\Drupal\pettys_cart\Controller\CartController::viewCart'
+    _title: 'Mon panier'
+  requirements:
+    _permission: 'access content'
+
+pettys_cart.get_cart_count:
+  path: '/cart/count'
+  defaults:
+    _controller: '\Drupal\pettys_cart\Controller\CartController::getCartCount'
+    _title: 'Compteur du panier'
+  requirements:
+    _permission: 'access content'

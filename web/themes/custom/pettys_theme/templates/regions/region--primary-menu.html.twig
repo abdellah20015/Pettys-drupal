@@ -1,0 +1,70 @@
+<div class="main-header">
+  <div class="container">
+    {# Afficher le logo et le menu principal existant #}
+    {% if content %}
+      {{ content }}
+    {% endif %}
+
+    {# Navigation Right dynamique #}
+    <div class="nav-right">
+      {% if nav_right_items %}
+        {% for item in nav_right_items %}
+          {% set item_type = item.type|split('|')|last|trim %}
+          {% if item_type == 'search' %}
+            {# Search #}
+            <div class="search-wrapper">
+              <a href="#" class="icon-btn search-trigger js-search-trigger">
+                <i class="{{ item.icon }}"></i>
+              </a>
+            </div>
+          {% elseif item_type == 'user' %}
+            {# Account Dropdown #}
+            <div class="account dropdown">
+              <a href="{{ item.url }}" class="icon-btn">
+                <i class="{{ item.icon }}"></i>
+              </a>
+              <ul class="dropdown-menu">
+                {% if logged_in %}
+                  <li><a href="/user/{{ user.id }}">{{ user.name }}</a></li>
+                  <li><a href="/user/logout">{{ 'Log out'|t }}</a></li>
+                {% else %}
+                  <li><a href="/user/login">{{ 'Sign in'|t }}</a></li>
+                  <li><a href="/user/register">{{ 'Sign up'|t }}</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          {% elseif item_type == 'cart' %}
+            {# Cart #}
+            <div class="cart">
+              <a href="{{ item.url }}" class="icon-btn cart-btn">
+                <i class="{{ item.icon }}"></i>
+                <span class="cart-count">{{ cart_count }}</span>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+<div class="search-bar-overlay">
+  <div class="search-bar-container">
+    {% if custom_search_form %}
+      {{ custom_search_form|raw }}
+      <button type="button" class="search-close js-search-close">
+        <i class="bi bi-x"></i>
+      </button>
+    {% else %}
+      <form action="/search/node" method="get" class="search-form">
+        <i class="bi bi-search search-icon"></i>
+        <input class="txt" type="text" name="keys" class="search-input" placeholder="{{ 'Search...'|t }}">
+        <button type="button" class="search-close js-search-close">
+          <i class="bi bi-x"></i>
+        </button>
+      </form>
+    {% endif %}
+  </div>
+</div>
+

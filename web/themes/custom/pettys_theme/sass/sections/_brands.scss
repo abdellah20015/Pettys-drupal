@@ -1,0 +1,83 @@
+.brand-partners {
+  background-color: $color-brown-10;
+  padding: 30px 40px;
+  transform: translate(50px, 50px);
+  text-align: $center;
+  background: linear-gradient(120deg, $color-white 25%, $color-brown-10 25%);
+  margin-bottom: 111px;
+  margin-top: -50px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .brands-slider {
+    display: $flex;
+    align-items: $center;
+    justify-content: $center;
+    overflow: hidden;
+    width: 100%;
+    gap: 25px;
+    transform: translate(150px, 0px);
+
+    .slider-nav {
+      background: none;
+      border: none;
+      color: $color-brown-E9;
+      font-size: $font-size-24;
+      cursor: $cursor;
+      padding: 10px;
+      display: $flex;
+      align-items: $center;
+      justify-content: $center;
+
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      // Retirer les transformations spécifiques pour centrer les boutons
+      &.prev,
+      &.next {
+        transform: none;
+        position: static;
+        background: transparent;
+      }
+    }
+
+    .brands-wrapper {
+      display: $flex;
+      gap: 50px;
+      position: $relative;
+      overflow: hidden;
+      transition: transform 0.4s ease-in-out;
+
+      .brand-item {
+        flex: 0 0 auto;
+
+        img {
+          width: 100px;
+          height: auto;
+          opacity: 70%;
+        }
+      }
+    }
+  }
+
+  .paw-path {
+    position: $absolute;
+    left: 0;
+    width: 35%;
+    transform: translate(-60px, -95px);
+  }
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+}

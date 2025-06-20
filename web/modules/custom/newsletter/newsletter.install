@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Install file for the Newsletter module.
+ */
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Implements hook_install().
+ */
+function newsletter_install() {
+  $schema = Database::getConnection()->schema();
+
+  $schema->createTable('newsletter_subscriber', [
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+    'unique keys' => [
+      'email' => ['email'],
+    ],
+  ]);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function newsletter_uninstall() {
+  $schema = Database::getConnection()->schema();
+  $schema->dropTable('newsletter_subscriber');
+}

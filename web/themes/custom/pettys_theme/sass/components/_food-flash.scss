@@ -1,0 +1,182 @@
+.flash-sale-banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-bottom: 146px;
+
+  .flash-sale-content {
+    width: 660px !important;
+    height: 126px !important;
+    color: $color-white;
+    margin-left: 50px;
+    margin-top: 20px;
+    background: none;
+
+    .sale-title {
+      font-family: $font-family-ubuntu;
+      font-weight: $font-weight-500;
+      font-size: $font-size-44;
+      line-height: 52px;
+      text-transform: uppercase;
+      width: 660px;
+      height: 82px;
+      margin-bottom: 32px;
+      text-align: left;
+      transform: translateY(40px);
+    }
+
+    .sale-end {
+      font-family: $font-family-ubuntu;
+      font-weight: $font-weight-400;
+      font-size: $font-size-18;
+      line-height: 62px;
+      width: 400px;
+      height: 12px;
+      text-align: left;
+      transform: translateY(40px);
+    }
+  }
+
+  .container {
+    background: none;
+  }
+
+  .line1 {
+    width: 990.5px;
+    height: 9px;
+    background: linear-gradient(50deg, $color-brown-10 95%, $color-white 95%);
+    margin-bottom: 9px;
+    transform: translateY(-35px);
+  }
+
+  .line2 {
+    height: 9px;
+    background: linear-gradient(-50deg, $color-brown-10 75%, $color-white 75%);
+    margin-top: 9px;
+    margin-bottom: 146px;
+    transform: translateY(180px);
+  }
+
+  .action-buttons {
+    .btn-flash-sale1 {
+      @include btn-flash-sale(
+        205px !important,
+        56px !important,
+        $color-white,
+        var(--black, $color-black-25),
+        600px
+      );
+      transform: translate(183px, -12px);
+      &:hover {
+        background: $color-white-E8;
+        color: $color-black-25;
+      }
+    }
+
+    .btn-flash-sale2 {
+      @include btn-flash-sale(
+        167px !important,
+        56px !important,
+        $color-yellow-A3,
+        $color-black-25
+      );
+      transform: translate(750px, -68px);
+      &:hover {
+        background: $color-yellow-7D;
+      }
+    }
+  }
+
+  @include responsive(md) {
+    height: auto;
+    flex-direction: column;
+    padding: $spacing-md 0;
+    text-align: $center;
+
+    .flash-sale-content {
+      padding-left: 0;
+      margin-bottom: $spacing-sm;
+      background: none;
+    }
+
+    .action-buttons {
+      padding-right: 0;
+      justify-content: $center;
+    }
+  }
+
+  @media (max-width: 800px) {
+    width: 100%;
+    height: auto;
+    padding: $spacing-sm 0; /* Padding réduit pour un look compact */
+    margin-bottom: 60px; /* Espace inférieur réduit pour mobile */
+
+    .container {
+      padding: 0 $spacing-xs; /* Padding minimal pour maximiser l'espace */
+    }
+
+    .line1,
+    .line2 {
+      width: 95%; /* Presque pleine largeur pour un look moderne */
+      height: 5px; /* Hauteur légèrement réduite pour subtilité */
+      margin: $spacing-xs auto; /* Espacement centré et réduit */
+      transform: none; /* Supprimer transformations desktop */
+      display: none;
+    }
+
+    .line2 {
+      margin-bottom: $spacing-sm; /* Réduire l'espace excessif */
+    }
+
+    .flash-sale-content {
+      width: 100% !important;
+      height: auto !important;
+      padding: $spacing-sm $spacing-xs;
+      margin: 0 auto;
+      text-align: center;
+      background: none;
+
+      .sale-title {
+        font-size: 26px; /* Taille légèrement ajustée pour clarté */
+        line-height: 32px; /* Hauteur de ligne optimisée */
+        width: 100%;
+        height: auto;
+        margin: 0 auto $spacing-sm;
+        transform: none;
+      }
+
+      .sale-end {
+        font-size: 14px;
+        line-height: 20px; /* Hauteur de ligne resserrée */
+        width: 100%;
+        height: auto;
+        margin: 0 auto $spacing-md;
+        transform: none;
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-md; /* Espacement plus généreux pour clarté */
+      padding: 0 $spacing-xs;
+
+      .btn-flash-sale1,
+      .btn-flash-sale2 {
+        width: 100%;
+        max-width: 220px; /* Boutons plus larges pour un look pro */
+        height: 42px; /* Hauteur légèrement réduite */
+        padding: 10px 20px;
+        margin: 0;
+        transform: none;
+        transition: transform 0.2s ease, background 0.2s ease; /* Animation fluide */
+        &:hover,
+        &:active {
+          transform: scale(1.05); /* Zoom subtil au tap/hover */
+        }
+      }
+    }
+  }
+}

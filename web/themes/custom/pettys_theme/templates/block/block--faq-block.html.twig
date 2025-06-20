@@ -1,0 +1,23 @@
+{% if faq_items %}
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-paw-top-left" style="background-image: url('{{ theme_path }}/images/paw-print.png'); position: absolute; width: 289px; height: 337px; background-size: contain; background-repeat: no-repeat; opacity: 0.2; top: 20px; left: 0px; z-index: 1;"></div>
+      <div class="faq-paw-bottom-right" style="background-image: url('{{ theme_path }}/images/paw-print.png'); position: absolute; width: 289px; height: 337px; background-size: contain; background-repeat: no-repeat; opacity: 0.2; bottom: 20px; right: 1px; z-index: 1; transform: rotate(-150deg);"></div>
+
+      <div class="section-title">{{ faq_section_title }}</div>
+
+      <div class="faq-intro">{{ faq_intro|raw }}</div>
+
+      <div class="faq-accordion">
+        {% for item in faq_items %}
+          <div class="faq-item">
+            <button class="faq-question" data-answer="{{ loop.index0 }}">{{ item.question }}</button>
+            <div class="faq-answer">
+              {{ item.answer|raw }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}

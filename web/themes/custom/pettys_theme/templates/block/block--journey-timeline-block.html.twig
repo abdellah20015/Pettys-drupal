@@ -1,0 +1,66 @@
+{#
+/**
+ * @file
+ * Template for the Journey Timeline Block.
+ */
+#}
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+  'our-journey'
+] %}
+
+<div{{attributes.addClass(classes)}}>
+
+	{% block content %}
+		<div class="container">
+			<div class="journey-cards">
+				{% for item in content.field_timeline_items %}
+					{% if item['#paragraph'] %}
+						{% set paragraph = item['#paragraph'] %}
+						{% set year = paragraph.field_timeline_year.value %}
+						{% set title = paragraph.field_timeline_title.value %}
+						{% set description = paragraph.field_timeline_description.value %}
+						{% set active_class = loop.index0 == 0 ? 'active' : '' %}
+
+						<div class="paragraph paragraph--type--timeline-item paragraph--view-mode--default {{ active_class }}">
+							<div class="journey-content">
+								<div class="field--name-field-timeline-title">{{ title }}</div>
+								<div class="field--name-field-timeline-description">{{ description }}</div>
+							</div>
+							<div class="field--name-field-timeline-image">
+								{% if paragraph.field_timeline_image.entity %}
+									{{ content.field_timeline_items[loop.index0].field_timeline_image }}
+								{% else %}
+									<img src="{{ theme_path }}/images/timeline-{{ year }}.jpg" alt="{{ title }}">
+								{% endif %}
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+
+			<div class="timeline-container">
+				<div class="timeline-navigation">
+					<button class="timeline-nav prev">
+						<i class="bi bi-chevron-left"></i>
+					</button>
+					<div class="timeline-years">
+						{% for item in content.field_timeline_items %}
+							{% if item['#paragraph'] %}
+								{% set paragraph = item['#paragraph'] %}
+								{% set year = paragraph.field_timeline_year.value %}
+								{% set active_class = loop.index0 == 0 ? 'active' : '' %}
+								<span class="year {{ active_class }}">{{ year }}</span>
+							{% endif %}
+						{% endfor %}
+					</div>
+					<button class="timeline-nav next">
+						<i class="bi bi-chevron-right"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+</div>

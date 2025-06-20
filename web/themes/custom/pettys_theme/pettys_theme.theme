@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Main theme file for Pettys Theme.
+ */
+include_once __DIR__ . '/src/preprocess/page.preprocess.php';
+include_once __DIR__ . '/src/preprocess/block.preprocess.php';
+include_once __DIR__ . '/src/preprocess/region.preprocess.php';
+include_once __DIR__ . '/src/preprocess/menu.preprocess.php';
+include_once __DIR__ . '/src/preprocess/html.preprocess.php';
+include_once __DIR__ . '/src/preprocess/theme_suggestions.php';
+include_once __DIR__ . '/src/preprocess/views.view.process.php';
+include_once __DIR__ . '/src/includes/utilities.php';

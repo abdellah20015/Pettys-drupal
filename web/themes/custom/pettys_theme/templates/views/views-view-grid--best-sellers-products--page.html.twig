@@ -1,0 +1,23 @@
+<h1 class="page-title">Best Sellers</h1>
+{% for row in rows %}
+  <div class="product-card">
+    <div class="product-card-image">
+      <img src="{{ row.content['#row']._entity.field_image_du_produit.entity.field_media_image.entity.uri.value | file_url }}" alt="{{ row.content['#row']._entity.title.value }}" loading="lazy">
+      {% if row.content['#row']._entity.field_ancien_prix.value %}
+        <span class="sale-badge">Soldes</span>
+      {% endif %}
+    </div>
+    <div class="product-card-content">
+      <h3>{{ row.content['#row']._entity.title.value }}</h3>
+      <div class="price-container">
+        <span class="price">{{ row.content['#row']._entity.field_prix_actuel.value | number_format(2) }} {{ currency_symbol }}</span>
+        {% if row.content['#row']._entity.field_ancien_prix.value %}
+          <span class="old-price">{{ row.content['#row']._entity.field_ancien_prix.value | number_format(2) }} {{ currency_symbol }}</span>
+        {% endif %}
+      </div>
+      <div class="rating">
+        {{ row.content['#row']._entity.field_evaluation.value ? row.content['#row']._entity.field_evaluation.value | stars : '★★★★☆' }}
+      </div>
+    </div>
+  </div>
+{% endfor %}

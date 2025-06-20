@@ -1,0 +1,4 @@
+services:
+  webform_newsletter2go.post_manager:
+    class: Drupal\webform_newsletter2go\PostManager
+    arguments: ['@http_client', '@state', '@logger.factory', '@config.factory']

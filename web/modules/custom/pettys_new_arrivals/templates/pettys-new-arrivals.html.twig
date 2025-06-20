@@ -1,0 +1,44 @@
+<section class="new-arrivals products-slider">
+  <div class="container">
+    <h2 class="section-title">{{ section_title|t }}</h2>
+    <p class="section-subtitle">{{ section_subtitle|t }}</p>
+    {% if new_arrivals_products|length > 0 %}
+      <div class="products-wrapper">
+        {% for product in new_arrivals_products %}
+          <div class="product-item gsap-scale-in" data-product-id="{{ product.nid }}">
+            <div class="product-image-container">
+              <img src="{{ product.image }}" alt="{{ product.name|t }}" width="250" height="268">
+              <div class="product-overlay">
+                {% for icon in product.icons %}
+                  <a href="{{ icon.url }}"
+                     class="overlay-icon {{ icon.attributes.class|join(' ') }}"
+                     {% for attr, value in icon.attributes %}
+                       {% if attr != 'class' %}
+                         {{ attr }}="{{ value }}"
+                       {% endif %}
+                     {% endfor %}
+                     data-action="{{ icon.action }}"
+                     data-product-id="{{ product.nid }}">
+                    <i class="{{ icon.class }}"></i>
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+            <h3 class="product-name">{{ product.name|t }}</h3>
+            <div class="product-price">
+              <span class="current-price">{{ product.current_price }}</span>
+              {% if product.old_price %}
+                <span class="old-price">{{ product.old_price }}</span>
+              {% endif %}
+            </div>
+            <div class="product-rating">{{ product.rating|raw }}</div>
+          </div>
+        {% endfor %}
+      </div>
+      <button class="slider-nav prev"><i class="bi bi-chevron-left"></i></button>
+      <button class="slider-nav next"><i class="bi bi-chevron-right"></i></button>
+    {% else %}
+      <p>{{ 'Aucun produit trouvé pour les Nouvelles Arrivées.'|t }}</p>
+    {% endif %}
+  </div>
+</section>

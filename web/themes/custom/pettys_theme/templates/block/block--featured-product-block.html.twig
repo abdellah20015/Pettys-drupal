@@ -1,0 +1,61 @@
+{#
+  Template pour le bloc Featured Product.
+#}
+<section class="featured-product">
+  <div class="container">
+    <div class="featured-header">
+      <h2 class="section-title">{{ content.field_featured_section_title }}</h2>
+      {% if content.field_featured_subtitle|render %}
+        <p class="featured-subtitle">{{ content.field_featured_subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="featured-slider">
+      {% if content.field_featured_title|render or content.field_featured_button_label|render or content.field_featured_button_url|render %}
+        <div class="featured-slide active">
+          <div class="featured-content" style="background-image: url('{{ content.field_featured_background }}');">
+            {% if content.field_featured_title|render %}
+              {% set title_text = content.field_featured_title|striptags|trim %}
+              {% set break_chars = ['.', '?', '!'] %}
+              {% set break_position = -1 %}
+
+              {% for char in break_chars %}
+                {% set pos = title_text|split(char)|length - 1 %}
+                {% if pos > 0 and title_text|split(char)[0]|length > break_position %}
+                  {% set break_position = title_text|split(char)[0]|length %}
+                  {% set break_char = char %}
+                {% endif %}
+              {% endfor %}
+
+              {% if break_position > 0 %}
+                {% set first_part = title_text|slice(0, break_position + 1) %}
+                {% set second_part = title_text|slice(break_position + 1)|trim %}
+                <h2 class="featured-title">{{ first_part }}<br>{{ second_part }}</h2>
+              {% else %}
+                <h2 class="featured-title">{{ title_text }}</h2>
+              {% endif %}
+            {% endif %}
+            {% if content.field_featured_button_url_data %}
+              <a href="{{ content.field_featured_button_url_data.url }}" class="btn-featured">
+                {{ content.field_featured_button_url_data.title }} <i class="bi bi-arrow-right"></i>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="slider-pagination">
+        <div class="control-track">
+          <div class="control-handle">
+            <div class="control-arrow control-left">
+              <i class="bi bi-chevron-left"></i>
+            </div>
+            <div class="control-arrow control-right">
+              <i class="bi bi-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
